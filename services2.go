@@ -8,17 +8,14 @@ import (
 )
 
 func main() {
-	// http.HandleFunc("/", Handler2)
-	// fmt.Println("Running server!")
-	// log.Fatal(http.ListenAndServe(":8081", nil))
 	http.HandleFunc("/", Handler2)
 	fmt.Println("Running server!")
-	log.Fatal(http.ListenAndServe(":8081", nil))
+	log.Fatal(http.ListenAndServe(":8000", nil))
 }
 
-func Handler2(w http.ResponseWriter, r *http.Request) {
-	message := r.URL.Path[1:]
-	json.NewEncoder(w).Encode(map[string]string{"message2": message})
+func Handler2(res http.ResponseWriter, req *http.Request) {
+	message := req.URL.Path[1:]
+	json.NewEncoder(res).Encode(map[string]string{"message2": message})
 
 }
 
