@@ -1,0 +1,15 @@
+version: '3'
+services:
+    services1:
+        build: C:\Users\Admin\go\src\docker\services1
+        container_name: services1
+        ports:
+            - "8080:8080"
+        links:
+            - services2
+    services2:
+        build: C:\Users\Admin\go\src\docker\services2
+        container_name: services2
+        ports:
+            - "8000:8000"
+
